@@ -33,7 +33,7 @@ resource "aws_instance" "sls" {
     }
     tags = {
         Name = "sls"
-        Owner = "big"
+        Owner = "bigo"
         Env = "dev"
     }
 }
