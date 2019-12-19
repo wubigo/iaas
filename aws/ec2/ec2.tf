@@ -31,9 +31,26 @@ resource "aws_instance" "sls" {
       volume_size           = "8"
       delete_on_termination = "true"
     }
+
+    user_data = "${file("attach_ebs.sh")}"
+
     tags = {
         Name = "sls"
         Owner = "bigo"
         Env = "dev"
     }
+}
+
+
+
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/xvdf"
+  volume_id   = "vol-097c65f161e1ccdeb"
+  instance_id = "${aws_instance.sls.id}"
+}
+
+
+output "public_ip" {
+  description = "List of public IP addresses assigned to the instances, if applicable"
+  value       = "${aws_instance.sls.public_ip}"
 }
