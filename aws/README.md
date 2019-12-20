@@ -13,3 +13,17 @@ secret_key     ****************G3t5 shared-credentials-file
 ```
 
 
+## 创建
+
+```
+terrafrom init
+terraform apply  -auto-approve
+```
+
+## 重置
+
+
+```
+terraform destroy
+```
+

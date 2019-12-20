@@ -8,7 +8,7 @@ pip install awscli
 cp /home/ubuntu/.bashrc /home/ubuntu/.bashrc_orig
 
 tee -a /home/ubuntu/.bashrc <<-'EOF'
-complete -C '/home/ubuntu/.local/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' aws
 export PATH=/mnt/xvdf/node-v12.13.1-linux-x64/bin:$PATH
 EOF
 
