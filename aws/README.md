@@ -27,3 +27,9 @@ terraform apply  -auto-approve
 terraform destroy
 ```
 
+
+## 显示状态
+
+```
+terraform output
+```
