@@ -51,7 +51,7 @@ resource "aws_volume_attachment" "ebs_att" {
 
 output "instance_id" {
   description = "List of the instance id"
-  value       = "${element(aws_instance.sls.*.id, 0)}"
+  value       = "${aws_instance.sls.id}"
 }
 output "public_ip" {
   description = "List of public IP addresses assigned to the instances, if applicable"

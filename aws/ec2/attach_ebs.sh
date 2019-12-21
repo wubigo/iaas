@@ -23,3 +23,11 @@ add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu
 apt update
 apt install docker-ce=18.06.3~ce~3-0~ubuntu -y
 usermod -aG docker ubuntu
+
+
+git clone https://github.com/wubigo/node-fn.git /opt/node-fn
+chown -Rf ubuntu:ubuntu /opt/node-fn
+cd /opt/node-fn/sitemap
+export PATH=/mnt/xvdf/node-v12.13.1-linux-x64/bin:$PATH
+npm install
+node fromUrl.js > fromUrl.log
