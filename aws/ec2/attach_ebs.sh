@@ -16,3 +16,10 @@ mkdir /mnt/xvdf
 chown -Rf ubuntu:ubuntu /mnt/xvdf
 mount /dev/xvdf /mnt/xvdf
 echo /dev/xvdf  /mnt/xvdf ext4 defaults,nofail 0 2 >> /etc/fstab
+
+apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
+apt update
+apt install docker-ce=18.06.3~ce~3-0~ubuntu -y
+usermod -aG docker ubuntu
