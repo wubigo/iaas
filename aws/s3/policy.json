@@ -5,7 +5,7 @@
           "Effect":"Allow",
         "Principal": "*",
         "Action":["s3:GetObject"],
-        "Resource":["arn:aws:s3:::wubigo_com/*"
+        "Resource":["arn:aws:s3:::s3.wubigo.com/*"
         ]
       }
     ]
