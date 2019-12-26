@@ -43,11 +43,11 @@ resource "aws_instance" "sls" {
 
 
 
-# resource "aws_volume_attachment" "ebs_att" {
-#   device_name = "/dev/xvdf"
-#   volume_id   = "vol-097c65f161e1ccdeb"
-#   instance_id = "${aws_instance.sls.id}"
-# }
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/xvdf"
+  volume_id   = "vol-097c65f161e1ccdeb"
+  instance_id = "${aws_instance.sls.id}"
+}
 
 output "instance_id" {
   description = "List of the instance id"
