@@ -3,23 +3,14 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "wubigo_com" {
-  bucket = "s3.wubigo.com"
+  bucket = "s.wubigo.com"
   acl    = "public-read"
   policy = "${file("policy.json")}"
 
   website {
     index_document = "index.html"
-    error_document = "error.html"
+    error_document = "404.html"
 
-    routing_rules = <<EOF
-[{
-    "Condition": {
-        "KeyPrefixEquals": "docs/"
-    },
-    "Redirect": {
-        "ReplaceKeyPrefixWith": "documents/"
-    }
-}]
-EOF
+    
   }
 }

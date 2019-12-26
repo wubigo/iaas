@@ -12,6 +12,12 @@ complete -C '/usr/local/bin/aws_completer' aws
 export PATH=/mnt/xvdf/node-v12.13.1-linux-x64/bin:/mnt/xvdf/bin/:$PATH
 EOF
 
+
+tee -a /home/ubuntu/.bashrc <<-'EOF'
+plugin_cache_dir   = "/mnt/xvdf/.terraform.d/plugin-cache"
+disable_checkpoint = true
+EOF
+
 mkdir /mnt/xvdf
 chown -Rf ubuntu:ubuntu /mnt/xvdf
 mount /dev/xvdf /mnt/xvdf
