@@ -22,8 +22,8 @@ resource "aws_instance" "sls" {
     ami = "ami-0f9af249e7fa6f61b"
     instance_type = "t2.micro"
     
-    subnet_id = "subnet-195f6e42"
-    vpc_security_group_ids = [ "sg-312b4542", "sg-0e4422dea8882b6be" ]
+    subnet_id = "subnet-0d2ba86ccf7420c77"
+    vpc_security_group_ids = [ "sg-0799255c98f0edbf7", "sg-044db67d975f0b833" ]
     key_name = "bigo"
 
     root_block_device {
