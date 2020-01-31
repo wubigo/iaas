@@ -1,16 +1,20 @@
 #!/bin/bash
 
-# apt update
-# apt install python-pip -y
-# apt install unzip -y
-# pip install awscli
+apt update
+apt install python-pip -y
+apt install unzip -y
+pip install awscli
+
+# echo "Asia/Shanghai" > /etc/timezone
+# unlink /etc/localtime
+# ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # cp /home/ubuntu/.bashrc /home/ubuntu/.bashrc_orig
 
-# tee -a /home/ubuntu/.bashrc <<-'EOF'
-# complete -C '/usr/local/bin/aws_completer' aws
-# export PATH=/mnt/xvdf/node-v12.13.1-linux-x64/bin:/mnt/xvdf/bin/:$PATH
-# EOF
+tee -a /home/ubuntu/.bashrc <<-'EOF'
+complete -C '/usr/local/bin/aws_completer' aws
+export PATH=/mnt/xvdf/node-v12.13.1-linux-x64/bin:/mnt/xvdf/bin/:$PATH
+EOF
 
 
 # tee -a /home/ubuntu/.terraformrc <<-'EOF'

@@ -1,6 +1,5 @@
 provider "aws" {
     profile = "default"
-    # region = "us-west-1"
     region = "ap-northeast-1"
 }
 
@@ -20,7 +19,6 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "sls" {
     # ami = "${data.aws_ami.ubuntu.id}"
     ami = "ami-0f9af249e7fa6f61b"
-    # ami = "ami-0dbf5ea29a7fc7e05"
     instance_type = "t2.micro"
     
     
@@ -28,14 +26,14 @@ resource "aws_instance" "sls" {
       network_interface_id = "${aws_network_interface.nic.id}"
       device_index         = 0
     }
-    # network_interface {
-    #   network_interface_id = "${aws_network_interface.eth1.id}"
-    #   device_index         = 1
-    # }
+    network_interface {
+      network_interface_id = "${aws_network_interface.eth1.id}"
+      device_index         = 1
+    }
 
-    # subnet_id = "subnet-442fc81e"
-    # vpc_security_group_ids = [ "sg-080e882a71e66c55f", "sg-e8c28e96" ]
-    # key_name = "bigo-us"
+    # subnet_id = "subnet-0d2ba86ccf7420c77"
+    # vpc_security_group_ids = [ "sg-0799255c98f0edbf7", "sg-044db67d975f0b833" ]
+
     key_name = "bigo"
 
     root_block_device {
@@ -47,7 +45,7 @@ resource "aws_instance" "sls" {
     user_data = "${file("attach_ebs.sh")}"
 
     tags = {
-        Name = "sls"
+        Name = "sls2"
         Owner = "bigo"
         Env = "dev"
     }
@@ -56,20 +54,20 @@ resource "aws_instance" "sls" {
 
 
 resource "aws_network_interface" "nic" {
-  subnet_id   = "subnet-08c5c805226066daa"
-  security_groups  = [ "sg-0799255c98f0edbf7", "sg-044db67d975f0b833", "sg-0c4cf553b1db3448d" ]
+  subnet_id   = "subnet-0d2ba86ccf7420c77"
+  security_groups  = [ "sg-0799255c98f0edbf7", "sg-044db67d975f0b833" ]
   tags = {
     Name = "primary_network_interface"
   }
 }
 
-# resource "aws_network_interface" "eth1" {
-#   subnet_id   = "subnet-0d2ba86ccf7420c77"
-#   security_groups  = [ "sg-0799255c98f0edbf7", "sg-044db67d975f0b833" ]
-#   tags = {
-#     Name = "secondary_network_interface"
-#   }
-# }
+resource "aws_network_interface" "eth1" {
+  subnet_id   = "subnet-0d2ba86ccf7420c77"
+  security_groups  = [ "sg-0799255c98f0edbf7", "sg-044db67d975f0b833" ]
+  tags = {
+    Name = "secondary_network_interface"
+  }
+}
 
 
 # resource "aws_volume_attachment" "ebs_att" {
