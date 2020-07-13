@@ -19,7 +19,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "sls" {
     # ami = "${data.aws_ami.ubuntu.id}"
-    ami = "ami-0f9af249e7fa6f61b"
+    ami = "ami-0aa7c595324d25274"
     # ami = "ami-0dbf5ea29a7fc7e05"
     instance_type = "t2.micro"
     

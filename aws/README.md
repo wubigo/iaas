@@ -12,6 +12,12 @@ secret_key     ****************G3t5 shared-credentials-file
     region           ap-northeast-1      config-file    ~/.aws/config
 ```
 
+## 版本
+
+```
+C:\code\iaas\aws>terraform version
+Terraform v0.12.24
+```
 
 ## 创建
 
