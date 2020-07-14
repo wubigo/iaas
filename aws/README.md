@@ -39,3 +39,9 @@ terraform destroy
 ```
 terraform output
 ```
+
+## awscli
+
+```
+aws s3api create-bucket --bucket=terraform-serverless-e-1 --region ap-northeast-1 --create-bucket-configuration LocationConstraint=ap-northeast-1
+```
