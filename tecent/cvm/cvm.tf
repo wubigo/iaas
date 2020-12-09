@@ -26,6 +26,8 @@ resource "tencentcloud_instance" "cvm_test" {
             "sg-gtmiok8v"
         ]
 
+        password = "!Qaz3edc4Rf%"
+
         vpc_id = "vpc-ip7ok40a"
         subnet_id = "subnet-kvubcpq1"
         internet_max_bandwidth_out = 10
